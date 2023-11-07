@@ -50,55 +50,33 @@ In normal settings, assuming you’re using the timer module in PWM mode and gen
 
 
 ## Procedure:
-Step1: Open CubeMX & Create New Project
-<img src ="https://user-images.githubusercontent.com/36288975/226189166-ac10578c-c059-40e7-8b80-9f84f64bf088.png" width=450 height=450>
+Open a new STM32 Project.
 
+Create IOC file using STM32F401RB.
 
-Step2: Choose The Target MCU & Double-Click Its Name select the target to be programmed  as shown below and click on next 
-<img src ="https://user-images.githubusercontent.com/36288975/226189215-2d13ebfb-507f-44fc-b772-02232e97c0e3.png" width=450 height=450>
-<img src ="https://user-images.githubusercontent.com/36288975/226189230-bf2d90dd-9695-4aaf-b2a6-6d66454e81fc.png" width=450 height=450>
+Select Timers followed by
 
-<img src ="https://user-images.githubusercontent.com/36288975/226189280-ed5dcf1d-dd8d-43ae-815d-491085f4863b.png" width=450 height=450>
+Clock Sours -> Internal Clock
 
-Step3: Configure Timer2 Peripheral To Operate In PWM Mode With CH1 Output
-<img src ="https://github.com/vasanthkumarch/EXPERIMENT--07-SQUARE-WAVE-GENERATION-AT-THE-OUTPUT-PIN-USING-TIMER/assets/36288975/682c851a-7dfe-4089-8395-f76088d43896" width=450 height=450>
+Channel1 -> PWM Generation CH1
 
+Change the required things in Counter Settings,PWM Generation Channel1
 
-Step4: Set The RCC External Clock Source
-<img src ="https://github.com/vasanthkumarch/EXPERIMENT--07-SQUARE-WAVE-GENERATION-AT-THE-OUTPUT-PIN-USING-TIMER/assets/36288975/8888af3b-63e2-4760-a51b-17b477763941" width=450 height=450>
+Select Clock Configuration and generate the code
 
+define the callback function
 
-STM32 RCC External Clock Selection CubeMX
+Build Debug and Create 'hex.file'
 
-Step5: Go To The Clock Configuration
+Open a new Proteus Project
 
-Step6: Set The System Clock To Be 72MHz
-<img src ="https://github.com/vasanthkumarch/EXPERIMENT--07-SQUARE-WAVE-GENERATION-AT-THE-OUTPUT-PIN-USING-TIMER/assets/36288975/4ea03faa-fb90-4b31-8079-3db5f959f2c3" width=450 height=450>
+Select ports STM32F401RB and OSCILLOSCOPE.
 
+Connect PA0 to OSCILLOSCOPE(a).
 
-Step7: Name & Generate The Project Initialization Code For CubeIDE or The IDE You’re Using
+Check for execution of the output using run option
 
-
-
-Step8.  Creating Proteus project and running the simulation
-We are now at the last part of step by step guide on how to simulate STM32 project in Proteus.
-
-Step9. Create a new Proteus project and place STM32F40xx i.e. the same MCU for which the project was created in STM32Cube IDE. 
-14. After creation of the circuit as per requirement as shown below 
-
-<img src ="https://github.com/vasanthkumarch/EXPERIMENT--07-SQUARE-WAVE-GENERATION-AT-THE-OUTPUT-PIN-USING-TIMER/assets/36288975/4f377f5e-bdda-489e-a416-c712c893831d" width=450 height=450>
-
-Step10. Double click on the the MCU part to open settings. Next to the Program File option, give full path to the Hex file generated using STM32Cube IDE. Then set the external crystal frequency to 8M (i.e. 8 MHz). Click OK to save the changes.
-
- 
-Step14. click on debug and simulate using simulation as shown below 
-<img src ="https://github.com/vasanthkumarch/EXPERIMENT--07-SQUARE-WAVE-GENERATION-AT-THE-OUTPUT-PIN-USING-TIMER/assets/36288975/b8efbfc2-f0c5-4106-8117-3a6e7ac87f6c" width=450 height=450>
-
-
- 
-
-  
-
+followed by Calculate T-on, T-off, total time and duty time.
 ## STM 32 CUBE PROGRAM :
 ```
 #include "main.h"
@@ -221,12 +199,12 @@ void assert_failed(uint8_t *file, uint32_t line)
 
 ## Output screen shots of proteus  :
  ### for 50% pulse :
-<img src ="https://github.com/karnankasinathan/EXPERIMENT--07-SQUARE-WAVE-GENERATION-AT-THE-OUTPUT-PIN-USING-TIMER/assets/118787064/0b870053-d29c-4f2a-a717-a5389a4bba9d" width=450 height=450>
+<img src ="https://github.com/karnankasinathan/EXPERIMENT--07-SQUARE-WAVE-GENERATION-AT-THE-OUTPUT-PIN-USING-TIMER/assets/118787064/25b71689-732b-447b-b083-d0bdc203e764" width=450 height=450>
  ### for 60% pulse :
-<img src ="https://github.com/karnankasinathan/EXPERIMENT--07-SQUARE-WAVE-GENERATION-AT-THE-OUTPUT-PIN-USING-TIMER/assets/118787064/69567251-f8a1-4427-a115-3c51fc832a4b" width=450 height=450>
+<img src ="https://github.com/karnankasinathan/EXPERIMENT--07-SQUARE-WAVE-GENERATION-AT-THE-OUTPUT-PIN-USING-TIMER/assets/118787064/5e17de29-8c72-455a-bc7e-48aa482c0348" width=450 height=450>
 
  ### for 70% pulse :
-<img src ="https://github.com/karnankasinathan/EXPERIMENT--07-SQUARE-WAVE-GENERATION-AT-THE-OUTPUT-PIN-USING-TIMER/assets/118787064/7200b906-8733-421c-b404-8df8dc656c64" width=450 height=450>
+<img src ="https://github.com/karnankasinathan/EXPERIMENT--07-SQUARE-WAVE-GENERATION-AT-THE-OUTPUT-PIN-USING-TIMER/assets/118787064/7b88da41-2323-4091-96e6-894d6076130a" width=450 height=450>
 
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
 <img src ="https://github.com/karnankasinathan/EXPERIMENT--07-SQUARE-WAVE-GENERATION-AT-THE-OUTPUT-PIN-USING-TIMER/assets/118787064/8336d261-0d01-4295-a03d-a27f6dbc897b" width=450 height=450>
